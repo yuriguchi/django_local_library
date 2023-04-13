@@ -81,11 +81,12 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {DATABASES = {
-    'default': dj_database_url.config(        # Feel free to alter this value to suit your needs.        default='postgresql://postgres:postgres@localhost:5432/mysite',        conn_max_age=600    )}
+    'default': dj_database_url.config(        # Feel free to alter this value to suit your needs.        
+    default='postgres://yuriguchi:ULvB1YwZyc9DV3lLTpH5wuQeVQcjhvmL@dpg-cgs0hahmbg5e4kjam6ng-a/django_local_library',        conn_max_age=600    )}
     #'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   # }
 }
 
 
