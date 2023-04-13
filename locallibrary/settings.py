@@ -9,8 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-# Don't forget to import dj-database-url at the beginning of the file
-import dj_database_url
+
 
 from pathlib import Path
 
@@ -27,11 +26,12 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+#DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
-
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')if RENDER_EXTERNAL_HOSTNAME:    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+ALLOWED_HOSTS = ['.onrender.com','127.0.0.1']
+\# Set CSRF trusted origins to allow any app on Railway and the local testing URL
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com','https://*.127.0.0.1']
 
 # Application definition
 
@@ -79,7 +79,8 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+# Don't forget to import dj-database-url at the beginning of the file
+import dj_database_url
 DATABASES = {DATABASES = {
     'default': dj_database_url.config(        # Feel free to alter this value to suit your needs.        
     default='postgres://yuriguchi:ULvB1YwZyc9DV3lLTpH5wuQeVQcjhvmL@dpg-cgs0hahmbg5e4kjam6ng-a/django_local_library',        conn_max_age=600    )}
