@@ -81,14 +81,14 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 # Don't forget to import dj-database-url at the beginning of the file
 import dj_database_url
-DATABASES = {DATABASES = {
+DATABASES = {
     'default': dj_database_url.config(        # Feel free to alter this value to suit your needs.        
     default='postgres://yuriguchi:ULvB1YwZyc9DV3lLTpH5wuQeVQcjhvmL@dpg-cgs0hahmbg5e4kjam6ng-a/django_local_library',        conn_max_age=600    )}
     #'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
    # }
-}
+#}
 
 
 # Password validation
